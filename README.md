@@ -172,6 +172,16 @@ The function will:
 6. Set LiteLLM routing, disable telemetry/experimental betas, set billing provider
 7. Launch `claude` with remaining arguments
 
+### Auth conflict warning
+
+When using a custom LLM, Claude Code may show this warning:
+
+> ⚠ Auth conflict: Both a token (claude.ai) and an API key (ANTHROPIC_API_KEY) are set. This may lead to unexpected behavior.
+> · Trying to use claude.ai? Unset the ANTHROPIC_API_KEY environment variable, or claude /logout then say "No" to the API key approval before login.
+> · Trying to use ANTHROPIC_API_KEY? claude /logout to sign out of claude.ai.
+
+This is expected and harmless. The `ANTHROPIC_API_KEY` is required for your custom backend, and `claudep` sets `CLAUDE_CODE_BILLING_PROVIDER=anthropic-console` to ensure it takes precedence. Everything works correctly despite the warning.
+
 ## Adding a new model
 
 Add a new `LLM_X_URL` / `LLM_X_API_KEY` / `LLM_X_MODEL` declaration at the top of the profile, then add a matching case block in both files:
