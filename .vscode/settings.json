@@ -1,0 +1,42 @@
+// Custom LLM config for Claude Code VS Code extension.
+// Full docs: docs/vscode.md
+//
+// Fill in ANTHROPIC_BASE_URL and ANTHROPIC_API_KEY with your endpoint.
+//
+// Switch configs:
+//   - Prefix trick: rename key to "disabled_claudeCode.environmentVariables" to deactivate
+//   - Multiple files: copy settings.llm1.json over settings.json
+//   - Remove the block to fall back to default Anthropic auth
+//
+{
+  "claudeCode.environmentVariables": [
+    {
+      "name": "ANTHROPIC_BASE_URL",
+      // e.g. "https://my-llm.example.com"
+      "value": ""
+    },
+    {
+      "name": "ANTHROPIC_API_KEY",
+      // e.g. "sk-abcdefg12345678"
+      "value": ""
+    },
+    {
+      "name": "ANTHROPIC_MODEL",
+      // e.g. "glm-5.1-fp8"
+      "value": ""
+    },
+    { "name": "CLAUDE_CODE_BILLING_PROVIDER", "value": "anthropic-console" },
+    {
+      "name": "LITELLM_USE_CHAT_COMPLETIONS_URL_FOR_ANTHROPIC_MESSAGES",
+      "value": "1"
+    },
+    {
+      "name": "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC",
+      "value": "1"
+    },
+    {
+      "name": "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS",
+      "value": "1"
+    }
+  ]
+}
